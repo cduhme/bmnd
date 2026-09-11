@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bmnd"
+version = "0.3.0"
+description = "Direct Poisson Denoising by N-Dimensional Block-Matching and Collaborative Filtering"
+authors = [
+  { name="Christof Duhme", email="c_duhm02@uni-muenster.de" },
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numba",
+    "numpy",
+    "PyWavelets",
+    "scipy",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "scikit-image",
+    "bm3d",
+    "bm4d",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.black]
+extend-exclude = '''
+(^|/)shifts\.py$
+'''
